@@ -40,9 +40,7 @@ user.pre("save", async function (next) {
     process.env.ACCESS_TOKEN_SECRET,
     { expiresIn: 3600000 }
   );
-
   user.token = token;
-
   next();
 });
 

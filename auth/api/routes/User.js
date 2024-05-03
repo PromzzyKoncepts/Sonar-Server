@@ -2,14 +2,12 @@ require("dotenv").config();
 
 const express = require("express");
 const mongoose = require("mongoose");
-
+const cors = require("cors");
 const jwt = require("jsonwebtoken");
-
 const bcrypt = require("bcrypt");
 
 const User = require("../../db/models/user");
 const PersonalInfo = require("../../db/models/UserDetails");
-
 const checkAuth = require("../middleware/auth");
 
 const router = express.Router();

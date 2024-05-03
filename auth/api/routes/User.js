@@ -14,6 +14,13 @@ const checkAuth = require("../middleware/auth");
 
 const router = express.Router();
 
+router.use(
+  cors({
+    origin: "*",
+    optionsSuccessStatus: 200,
+  })
+);
+
 // Post request ********** CHECK USER EXIST IN DATABASE ****************
 
 router.post("/login", (req, res) => {
@@ -196,15 +203,15 @@ router.get("/info", checkAuth, async (req, res) => {
     // Find the user in the database
     const user = await User.findById(userId).exec();
     //   const info = await PersonalInfo.findById(userId).exec();
-    
+
     if (!user) {
-        return res.status(404).json({ error: "User not found" });
+      return res.status(404).json({ error: "User not found" });
     }
-    
+
     // Find personal info for the user
     const personalInfo = await PersonalInfo.findOne({ userId: userId }).exec();
-      console.log(personalInfo);
-    
+    console.log(personalInfo);
+
     if (!personalInfo) {
       return res.status(404).json({ error: "Personal info not found" });
     }

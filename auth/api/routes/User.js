@@ -216,9 +216,11 @@ router.get("/info", checkAuth, async (req, res) => {
 
     // Here you can extract whatever personal info you need from the user object
     const userInfo = {
+      id: user._id,
       firstName: user.firstName,
       email: user.email,
       phone: personalInfo.phoneContact,
+      location: personalInfo.location,
       distance: personalInfo.distance,
       timeTaken: personalInfo.timeTaken,
     };

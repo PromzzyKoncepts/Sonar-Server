@@ -29,23 +29,21 @@ router.post("/login", (req, res) => {
     .then((user) => {
       bcrypt.compare(password, user.password, (err, result) => {
         if (user && result === true) {
-            res.status(200).json({
-              message: "logged in successfully",
-    
-              token: user.token,
-            });
-          } else if (result !== true) {
-            res.status(401).json({
-              message: "Invalid Password",
-            });
-          } else {
-            res.status(404).json({
-              error: "User not found",
-            });
-          }
+          res.status(200).json({
+            message: "logged in successfully",
+            firstName: user.firstName,
+            token: user.token,
+          });
+        } else if (result !== true) {
+          res.status(401).json({
+            message: "Invalid Password",
+          });
+        } else {
+          res.status(404).json({
+            error: "User not found",
+          });
+        }
       });
-
-      
     })
 
     .catch((err) => {

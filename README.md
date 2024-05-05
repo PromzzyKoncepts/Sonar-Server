@@ -1,56 +1,108 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# SONAR :SERVER
 
-> Description the project.
+> A simple customer tracker app built as part test for the role of a fullstack Developer @YIP Online Ltd
 
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
+- Express
+- MongoDB
+- NodeJs
 
-## Live Demo (if available)
+# Front-end Repo
+- [https://github.com/PromzzyKoncepts/Sonar](https://github.com/PromzzyKoncepts/Sonar)
 
-[Live Demo Link](https://livedemo.com)
+## Live Demo 
+
+[API Link](https://sonar-server.onrender.com)
 
 
 ## Getting Started
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
+
+# RESTful API Node Express Mongoose Example
+
+The project builds RESTful APIs using Node.js, Express and Mongoose, ...
+
+## Manual Installation
+
+Clone the repo:
+
+```bash
+git clone https://github.com/PromzzyKoncepts/Sonar-Server.git
+cd Sonar-Server
+```
+
+Install the dependencies:
+
+```bash
+npm install
+```
 
 
-To get a local copy up and running follow these simple example steps.
+Generate JWT RS256 key:
 
-### Prerequisites
+```bash
+ssh-keygen -t rsa -P "" -b 2048 -m PEM -f storage/jwtRS256.key
+ssh-keygen -e -m PEM -f storage/jwtRS256.key > storage/jwtRS256.key.pub
+# encode base64
+cat storage/jwtRS256.key | base64 # edit JWT_ACCESS_TOKEN_SECRET_PRIVATE in .env
+cat storage/jwtRS256.key.pub | base64 # edit JWT_ACCESS_TOKEN_SECRET_PUBLIC in .env
+```
 
-### Setup
+## Table of Contents
 
-### Install
+- [Commands](#commands)
+- [Project Structure](#project-structure)
+- [API Endpoints](#api-endpoints)
 
-### Usage
+## Commands
 
-### Run tests
+Running in development:
 
-### Deployment
+```bash
+npm run dev
+```
 
+
+
+## Project Structure
+
+```
+auth\
+ |--api\         # Environment variables and configuration
+   |--middlewares\    # Custom express middlewares
+   |--routes\    # Routes
+ |--db\    # Databse and connection
+   |--models\         # Mongoose models
+     |--user.js         # model for user schema
+     |--userDetails.js       # model for User's personal Info schema
+   |--connection.js          # Express, mongoose and Database connection
+ |--app.js    # Express and MongoDb integration
+ |--server.js        # App entry point
+ |--helper.js    # setup to assist devs to create their secret key
+```
+
+### API Endpoints
+
+List of available routes:
+
+**Auth routes**:\
+`POST /user/register` - Signup\
+`POST /user/login` - Signin\
+`POST /user/login` - upload user info\
+`GET /user/info` - fetch user info\
 
 
 ## Authors
 
 👤 **Author1**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@PromzzyKoncepts](https://github.com/PromzzyKoncepts)
+- Twitter: [@pr0mzzy](https://twitter.com/pr0mzzy)
+- LinkedIn: [promiseokechukwu](https://linkedin.com/in/promiseokechukwu)
 
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
 
 ## 🤝 Contributing
 
@@ -64,9 +116,8 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+- Google Map APIs
+- Me for the UI design
 
 ## 📝 License
 

@@ -25,6 +25,7 @@ The project builds RESTful APIs using Node.js, Express and Mongoose, ...
 
 ## Manual Installation
 
+## Commands
 Clone the repo:
 
 ```bash
@@ -49,19 +50,18 @@ cat storage/jwtRS256.key | base64 # edit JWT_ACCESS_TOKEN_SECRET_PRIVATE in .env
 cat storage/jwtRS256.key.pub | base64 # edit JWT_ACCESS_TOKEN_SECRET_PUBLIC in .env
 ```
 
+Running in development:
+
+```bash
+npm run dev
+```
 ## Table of Contents
 
 - [Commands](#commands)
 - [Project Structure](#project-structure)
 - [API Endpoints](#api-endpoints)
 
-## Commands
 
-Running in development:
-
-```bash
-npm run dev
-```
 
 
 
@@ -95,7 +95,7 @@ List of available routes:
 
 ## Authors
 
-👤 **Author1**
+👤 **Promise Okechukwu**
 
 - GitHub: [@PromzzyKoncepts](https://github.com/PromzzyKoncepts)
 - Twitter: [@pr0mzzy](https://twitter.com/pr0mzzy)
